@@ -1,3 +1,15 @@
+ - assembler(接受的組譯器不同)
+ AT&T : gas
+ Intel : nasm
+ 
+ - order(來源與目的暫存器順序不同)
+ - register naming(暫存器命名)
+ - imme operand(立即定址命名) 
+ - memory reference(間接定址) 
+ - opcode naming(指令命名) 
+ 
+ 
+ --------------------------------------------------
  The  GNU C  Compiler uses  the assembler  `as' as  a  backend.  This assembler uses AT&T syntax.  
   - as uses the form;
 
