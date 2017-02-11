@@ -1,0 +1,28 @@
+ The  GNU C  Compiler uses  the assembler  `as' as  a  backend.  This assembler uses AT&T syntax.  
+  - as uses the form;
+
+        nemonic source, destination (opposite to intel syntax)
+
+    - as  prefixes registers  with `%',  and prefixes  numeric constants
+      with `$'.
+
+    - Effective addresses use the following general syntax;
+
+        SECTION:DISP(BASE, INDEX, SCALE)
+
+      As in other assemblers, any one or more of these components may be
+      ommited,  within constraints  of valid  intel  instruction syntax.
+       
+    - As suffixes  the assembler nemonics  with a letter  indicating the
+      operand sizes  ('b' for  byte, 'w' for  word, 'l' for  long word). 
+
+    Example code (raw asm, not gcc inline)
+    --------------------------------------------------------------------
+    movl %eax, %ebx     /* intel: mov ebx, eax */                       
+    movl $56, %esi      /* intel: mov esi, 56 */                        
+    movl %ecx, $label(%edx,%ebx,$4) /* intel: mov [edx+ebx*4+4], ecx */ 
+    movb %ah, (%ebx)    /* intel: mov [ebx], ah */                      
+    --------------------------------------------------------------------
+
+    Notice that  as uses  C comment  syntax.  As can  also use  `#' that
+    works the same way as `;' in most other intel assemblers.
